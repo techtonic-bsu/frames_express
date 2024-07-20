@@ -13,12 +13,12 @@ app.use(express.static('public'))
 
 // routes
 app.use('/api/v1', routes);
-
+const port=process.env.PORT || 5000
 
 mongoose.connect(process.env.MDB_URI)
 .then(()=>{
-    app.listen(process.env.PORT, ()=>{
-        console.log("connected to database");
+    app.listen(port, ()=>{
+        console.log(`Started on port ${port}`);
     })
 }).catch((e)=>{ 
     console.log("there's an error connecting to database");
