@@ -6,6 +6,6 @@ This is for backend, still on experimentation
 
 ## Tech Stack
 
-**Server:** Mongoose, MongoDB, Express, Redis
+**Server:** Mongoose, MongoDB, Express
 
 
