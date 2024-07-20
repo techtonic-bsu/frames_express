@@ -5,7 +5,7 @@ const app=express()
 const mongoose= require('mongoose')
 const cors=require('cors')
 const jwt=require('jsonwebtoken')
-const routes=require('./api/routes')
+const routes=require('./src/api/routes')
 
 app.use(express.json())
 app.use(express.static('public'))
