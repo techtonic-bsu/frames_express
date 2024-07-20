@@ -13,7 +13,7 @@ app.use(express.static('public'))
 
 // routes
 app.use('/api/v1', routes);
-const port=process.env.PORT || 5000
+const port=process.env.PORT || 10000
 
 mongoose.connect(process.env.MDB_URI)
 .then(()=>{
