@@ -1,18 +1,25 @@
-// import { dotnenv } from 'dotenv';
-// import express from 'express';
-// import mongoose from 'mongoose';
+// imports
+const dotenv=require('dotenv').config()
+const express=require('express')
+const app=express()
+const mongoose= require('mongoose')
+const cors=require('cors')
+const jwt=require('jsonwebtoken')
+const routes=require('./api/routes')
 
-// dotnenv.config()
-// const app=express()
-// const cors=require('cors')
-// const jwt=require('jsonwebtoken')
-
-// app.use(express.json())
-// app.use(express.static('public'))
+app.use(express.json())
+app.use(express.static('public'))
 
 
-// mongoose.connect(process.env.PORT, ()=>{
-//     console.log("now to connected to DB")
-// }).catch((e)=>{
-//     console.log("error")
-// })
+// routes
+app.use('/api/v1', routes);
+
+
+mongoose.connect(process.env.MDB_URI)
+.then(()=>{
+    app.listen(process.env.PORT, ()=>{
+        console.log("connected to database");
+    })
+}).catch((e)=>{ 
+    console.log("there's an error connecting to database");
+})
