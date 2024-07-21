@@ -1,8 +1,19 @@
 const History = require('./HistoryModel')
 const mongoose=require('mongoose')
 
-// related functions
 
+const getHistory=async(req, res)=>{
+    try {
+        const query= req.query.code ? {code:req.query.code} : {}
+        const history = await History.find(query)
+        res.status(200).json(history)
+    } catch (e) {
+        res.status(500).json({error:e.message})
+    }
+}
+const getHistoryByDepartment=async(req, res)=>{
+    
+}
 
 
 const createHistoryIn=async(req, res)=>{
@@ -21,12 +32,14 @@ const createHistoryOut=async(req, res)=>{
             {$set:{timeOut: new Date()}},
             {upsert: true}
         )
-        if(history.matchedCount === 0){
-            res.status(400).json({error:"History of entry doesn't exists"})
-        }
-        res.status(200).json({message:history})
+        if(history.matchedCount === 0) res.status(400).json({error:"History of entry doesn't exists"})
+        else res.status(200).json({message:history})
     } catch (e) {
         res.status(500).json({error:e.message})
     }
 }
-module.exports={createHistoryIn, createHistoryOut}
+
+module.exports={
+    getHistory, getHistoryByDepartment,
+    createHistoryIn, createHistoryOut
+}
