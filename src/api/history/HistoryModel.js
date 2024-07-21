@@ -1,29 +1,18 @@
 const mongoose = require("mongoose");
 const Schema= mongoose.Schema
 
-const userSchema= new Schema({
+const historySchema= new Schema({
     code: {
         type:String,
         required: true
     },
-    role:{
-        type:String,
-        required: true
+    timeIn:{
+        type:Date
     },
-    firstName: {
-        type:String,
-        required: true
+    timeOut:{
+        type:Date
     },
-    lastName: {
-        type:String,
-        required: true
-    },
-    department: {
-        type:String,
-    },
-    program:{
-        type:String,
-    }
-},{id:true, timestamps:true})
+    
+},{id:true, timeseries:true})
 
-module.exports=mongoose.model('users', userSchema)
+module.exports=mongoose.model('history', historySchema)
