@@ -1,4 +1,4 @@
-const History = require('./HistoryModel')
+const History = require('../models/HistoryModel')
 const mongoose=require('mongoose')
 
 

@@ -1,4 +1,4 @@
-const Signup = require('./SignupModel')
+const Signup = require('../models/UserModel')
 const mongoose=require('mongoose')
 
 const createUser=async(req, res)=>{

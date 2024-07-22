@@ -1,4 +1,4 @@
-const Occupant = require('./OccupantModel')
+const Occupant = require('../models/OccupantModel')
 const mongoose=require('mongoose')
 
 const createOccupant=async(req, res)=>{
