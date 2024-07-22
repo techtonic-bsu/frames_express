@@ -12,6 +12,7 @@ const createUser=async(req, res)=>{
         if(!exists){
             const signup= await User.create(user)
             const encode= await Encoding.create(encoding)
+            console.log(encoding)
             res.status(200).json({message:{...signup, ...encode}})
         }
         else{

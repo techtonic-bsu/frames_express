@@ -6,6 +6,7 @@ const mongoose= require('mongoose')
 const cors=require('cors')
 const jwt=require('jsonwebtoken')
 const routes=require('./src/api/routes')
+const bodyParser = require('body-parser')
 app.use(express.json())
 app.use(express.static('public'))
 

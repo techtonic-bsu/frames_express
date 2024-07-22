@@ -7,7 +7,7 @@ const encodingSchema= new Schema({
         required: true
     },
     encoding:{
-        type:Schema.Types.Mixed
+        type:[mongoose.Schema.Types.Decimal128]
     }
 },{id:true, timestamps:true})
 
