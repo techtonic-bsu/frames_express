@@ -6,7 +6,6 @@ const mongoose= require('mongoose')
 const cors=require('cors')
 const jwt=require('jsonwebtoken')
 const routes=require('./src/api/routes')
-
 app.use(express.json())
 app.use(express.static('public'))
 
@@ -18,7 +17,7 @@ const port=process.env.PORT || 10000
 mongoose.connect(process.env.MDB_URI)
 .then(()=>{
     app.listen(port, ()=>{
-        console.log(`Started on port ${port}`);
+        console.log(`[FRAMES] Started on port ${port}`);
     })
 }).catch((e)=>{ 
     console.log("there's an error connecting to database");

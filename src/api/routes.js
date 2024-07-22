@@ -1,17 +1,22 @@
 const express = require('express');
-const historyRoute = require('./history/HistoryRouter');
-const signupRoute = require('./signup/SignupRouter');
+const historyRouter = require('./history/HistoryRouter');
+const signupRouter = require('./signup/SignupRouter');
+const encodingRouter = require('./encoding/EncodingRouter');
 
 const router = express.Router();
 
 const apiRoutes = [
     {
       path: '/signup',
-      route: signupRoute,
+      route: signupRouter,
     },
     {
       path: '/history',
-      route: historyRoute,
+      route: historyRouter,
+    },
+    {
+      path: '/encoding',
+      route: encodingRouter,
     },
 ];
 
