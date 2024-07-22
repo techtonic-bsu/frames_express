@@ -1,4 +1,5 @@
-const Signup = require('../models/UserModel')
+const User = require('../models/UserModel')
+const Encoding = require('../models/EncodingModel')
 const mongoose=require('mongoose')
 
 const createUser=async(req, res)=>{
@@ -7,10 +8,11 @@ const createUser=async(req, res)=>{
         const encoding={code: user.code, encoding:user["encoding"]}
         delete user["encoding"]
 
-        const exists=await Signup.findOne({code:user.code})
+        const exists=await User.findOne({code:user.code})
         if(!exists){
-            const signup= await Signup.create(user)
-            res.status(200).json({message:signup})
+            const signup= await User.create(user)
+            const encode= await Encoding.create(encoding)
+            res.status(200).json({message:{...signup, ...encode}})
         }
         else{
             res.status(400).json({message:"Code already exists"})
